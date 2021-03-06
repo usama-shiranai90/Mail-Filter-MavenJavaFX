@@ -7,16 +7,15 @@ import java.util.Scanner;
 public class EmailFilter {
 
     private int totalEmails = 0;
-    private Object firstKey = new Object();
-    private Object secondKey = new Object();
-    private Object thirdKey = new Object();
-    private ArrayList<String> emails = new ArrayList<>();
-    private ArrayList<String> filteredEmails = new ArrayList<>();
+    private final Object firstKey = new Object();
+    private final Object secondKey = new Object();
+    private final Object thirdKey = new Object();
+    private final ArrayList<String> emails = new ArrayList<>();
+    private final ArrayList<String> filteredEmails = new ArrayList<>();
     ArrayList<String> domainList = new ArrayList<>();//stores domainList from input file
+    private final ArrayList<String> files = new ArrayList();
+    private final String verifiedEmails = "VerifiedEmails";
     //    ArrayList<String> emailList = new ArrayList<>();//stores emailList from input file
-    private ArrayList<String> files = new ArrayList();
-    private String verifiedEmails = "VerifiedEmails";
-
 
     public void filterThemAll(int hop) {
         try {
@@ -34,7 +33,7 @@ public class EmailFilter {
                 }
             }
 
-            int domainCounter = 0;
+            int domainCounter;
             int threadRunCount = 1;
             if (FilterChecks.selectedThreadNumber == 1 && threadRunCount == 1) {
                 domainCounter = hop;
