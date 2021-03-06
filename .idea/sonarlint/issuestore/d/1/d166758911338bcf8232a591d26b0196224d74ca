@@ -1,0 +1,31 @@
+
+U	java:S106F"9Replace this use of System.out or System.err by a logger.(–£ÎÁ8ı‡™€/
+T	java:S106k"9Replace this use of System.out or System.err by a logger.(Œ’×[8ƒÎÀ™€/
+c
+java:S2142p"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8ƒÎÀ™€/
+X
+java:S26967"6Make the enclosing method "static" or remove this set.(ØÛ…ûÿÿÿÿ8µŸú–€/
+U	java:S106x"9Replace this use of System.out or System.err by a logger.(–£ÎÁ8÷¶Š™€/
+X	java:S1251"<This block of commented-out lines of code should be removed.(ÕêÆŸ8¼ŒĞ™€/
+]	java:S125:"<This block of commented-out lines of code should be removed.(Á¼Í¢øÿÿÿÿ8’¯™€/
+i
+java:S2142‚"FEither re-interrupt this method or rethrow the "InterruptedException".(²ı…¦ûÿÿÿÿ8÷¶Š™€/
+h
+java:S1450"RRemove the "url" field and declare it as a local variable in the relevant methods.(¹ÕÜ
+T	java:S106|"9Replace this use of System.out or System.err by a logger.(Œ’×[8÷¶Š™€/
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Úü’
+D
+java:S2189"""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ8ôñÙ•€/
+r
+java:S1450"\Remove the "urlConnection" field and declare it as a local variable in the relevant methods.(ïò­
+Z	java:S1066"9Replace this use of System.out or System.err by a logger.(â¥…œøÿÿÿÿ8ôñÙ•€/
+S
+java:S2696."6Make the enclosing method "static" or remove this set.(üüâ8µŸú–€/
+`
+java:S1124C"EReorder the modifiers to comply with the Java Language Specification.(ìÄï°üÿÿÿÿ
+U	java:S106)"9Replace this use of System.out or System.err by a logger.(©²á£8ôñÙ•€/
+L
+java:S1121Š".Extract the assignment out of this expression.(ø¿–8»±Ù˜€/
+b
+java:S21425"FEither re-interrupt this method or rethrow the "InterruptedException".(¹™Âp8ÈìÚ•€/
+]	java:S125b"<This block of commented-out lines of code should be removed.(Õ¥—¤úÿÿÿÿ8Ûôïœ€/

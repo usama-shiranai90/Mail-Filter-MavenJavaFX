@@ -1,0 +1,7 @@
+
+K
+java:S2696/"6Make the enclosing method "static" or remove this set.(Ø¶´0
+’
+java:S1130."wRemove the declaration of thrown exception 'java.lang.InterruptedException', as it cannot be thrown from method's body.(¯ìÍÿÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ó•š¾
+Q	java:S1250"<This block of commented-out lines of code should be removed.(ºÈ›·

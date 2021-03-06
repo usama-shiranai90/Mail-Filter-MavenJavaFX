@@ -1,0 +1,18 @@
+
+^
+java:S2095I"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(åß…ä
+j
+java:S11921"ODefine a constant instead of duplicating this literal "%s\\%s\\%s.txt" 4 times.(—¶¢‘üÿÿÿÿ
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íœš¡
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™à§»ùÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Úü’Ž
+i
+java:S40426"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(²Œ­ûÿÿÿÿ
+U	java:S8996";Do something with the "boolean" value returned by "delete".(²Œ­ûÿÿÿÿ
+\	java:S8997"BDo something with the "boolean" value returned by "createNewFile".(Ð’Íùÿÿÿÿ
+S	java:S106>"9Replace this use of System.out or System.err by a logger.(Ó¸€Çþÿÿÿÿ
+N	java:S106L"9Replace this use of System.out or System.err by a logger.(’ôÆà
+S	java:S106N"9Replace this use of System.out or System.err by a logger.(¤¥Þ‹ÿÿÿÿÿ
+N	java:S106R"9Replace this use of System.out or System.err by a logger.(Àûå 
+V	java:S125:"<This block of commented-out lines of code should be removed.(©€µíúÿÿÿÿ
+V	java:S125G"<This block of commented-out lines of code should be removed.(˜ø—Âþÿÿÿÿ

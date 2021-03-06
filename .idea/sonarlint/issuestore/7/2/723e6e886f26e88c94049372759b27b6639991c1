@@ -1,0 +1,11 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ó•š¾
+L
+java:S2696"6Make the enclosing method "static" or remove this set.(¢€þ¹
+K
+java:S2696&"6Make the enclosing method "static" or remove this set.(‡Ù®
+Q
+java:S2696."6Make the enclosing method "static" or remove this set.(îÈ„Ñÿÿÿÿÿ
+J
+java:S1068"4Remove this unused "BOOTSTRAP_PREFIX" private field.(‰®íÞ
+V	java:S125"<This block of commented-out lines of code should be removed.(âš¥òûÿÿÿÿ

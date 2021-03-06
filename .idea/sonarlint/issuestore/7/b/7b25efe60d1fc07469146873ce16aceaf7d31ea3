@@ -1,0 +1,40 @@
+
+X	java:S125@"<This block of commented-out lines of code should be removed.(þ«ð¬8¢þ·•€/
+X	java:S125F"<This block of commented-out lines of code should be removed.(ã¹¿8¢þ·•€/
+X	java:S125Q"<This block of commented-out lines of code should be removed.(Ü’žˆ8ñ¸±•€/
+m	java:S116'"SRename this field "ListView" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÚÒåõüÿÿÿÿ
+n
+java:S2095t"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(µÎ Àúÿÿÿÿ8ÑÒ¾öÿ.
+E	java:S108~")Either remove or fill this block of code.(ßÈ´8’Üøÿ.
+i
+java:S1450""SRemove the "file" field and declare it as a local variable in the relevant methods.(ïÛú
+X
+java:S2696p"6Make the enclosing method "static" or remove this set.(´ÑåÃøÿÿÿÿ8’Üøÿ.
+W
+java:S1141r"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8’Üøÿ.
+j	java:S100g"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ëìåò8’Üøÿ.
+]	java:S125D"<This block of commented-out lines of code should be removed.(ÿÂÀ‚þÿÿÿÿ8¢þ·•€/
+Y	java:S125’"<This block of commented-out lines of code should be removed.(©˜žÏ8Â°À“€/
+T
+java:S2696È"6Make the enclosing method "static" or remove this set.(Š»íÈ8’Üøÿ.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(º›°Î
+[	java:S106Ã"9Replace this use of System.out or System.err by a logger.(á¤±Âúÿÿÿÿ8’Üøÿ.
+Y	java:S125"<This block of commented-out lines of code should be removed.(Ü’žˆ8ìˆ¾“€/
+T
+java:S1144_"2Remove this unused private "showSelection" method.(ê™Ê…ùÿÿÿÿ8ùè¬”€/
+U	java:S106|"9Replace this use of System.out or System.err by a logger.(Ê¥ö¬8’Üøÿ.
+O
+java:S1481o"-Remove this unused "filePath" local variable.(ë¤åùúÿÿÿÿ8’Üøÿ.
+^
+java:S1854o"<Remove this useless assignment to local variable "filePath".(ë¤åùúÿÿÿÿ8’Üøÿ.
+W	java:S125K"<This block of commented-out lines of code should be removed.(ÔÏïe8¢þ·•€/
+V	java:S106”"9Replace this use of System.out or System.err by a logger.(Ë£Á¦8’Üøÿ.
+j
+java:S2095s"HUse try-with-resources or close this "FileReader" in a "finally" clause.(Ð§¿÷ùÿÿÿÿ8’Üøÿ.
+X	java:S1256"<This block of commented-out lines of code should be removed.(ã“ºä8Ù²¸•€/
+U	java:S106Ì"9Replace this use of System.out or System.err by a logger.(©æ»8’Üøÿ.
+]	java:S125Y"<This block of commented-out lines of code should be removed.(”…îËùÿÿÿÿ8šªá”€/
+X	java:S125h"<This block of commented-out lines of code should be removed.(°ÜŸÒ8’Üøÿ.
+V	java:S106Ê"9Replace this use of System.out or System.err by a logger.(¤Ëá½8’Üøÿ.
+`
+java:S14818">Remove this unused "connectionThreadSingleton" local variable.(‡¢ºËþÿÿÿÿ8ÃÅ¸•€/

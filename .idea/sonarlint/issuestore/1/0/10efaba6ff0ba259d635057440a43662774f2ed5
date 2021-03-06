@@ -1,0 +1,36 @@
+
+M
+java:S1611"2Remove the parentheses around the "data" parameter(—Ý•¥ÿÿÿÿÿ
+N	java:S106x"9Replace this use of System.out or System.err by a logger.(Àûå 
+T	java:S106­"9Replace this use of System.out or System.err by a logger.(Ó¸€Çþÿÿÿÿ
+V	java:S125/"<This block of commented-out lines of code should be removed.(ÌøÄýÿÿÿÿ
+O	java:S106º"9Replace this use of System.out or System.err by a logger.(’ôÆà
+V	java:S125"<This block of commented-out lines of code should be removed.(àˆ½ûúÿÿÿÿ
+S	java:S106""9Replace this use of System.out or System.err by a logger.(ô¥Ç¿ýÿÿÿÿ
+_
+java:S2095·"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(åß…ä
+E
+java:S3740"/Provide the parametrized type for this generic.(ä•Ãä
+Q	java:S125E"<This block of commented-out lines of code should be removed.(Æ’Úæ
+X
+java:S1858h"="get" returns a string, there's no need to call "toString()".(ŠŽ‚Ãýÿÿÿÿ
+V	java:S125]"<This block of commented-out lines of code should be removed.(Ùú¦óøÿÿÿÿ
+T	java:S106¼"9Replace this use of System.out or System.err by a logger.(¤¥Þ‹ÿÿÿÿÿ
+k
+java:S1192ž"ODefine a constant instead of duplicating this literal "%s\\%s\\%s.txt" 4 times.(—¶¢‘üÿÿÿÿ
+X
+java:S18589"="get" returns a string, there's no need to call "toString()".(©øÚøüÿÿÿÿ
+j
+java:S4042¤"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(²Œ­ûÿÿÿÿ
+W	java:S125µ"<This block of commented-out lines of code should be removed.(˜ø—Âþÿÿÿÿ
+s	java:S135*"YReduce the total number of break and continue statements in this loop to use at most one.(£˜’‘úÿÿÿÿ
+Q	java:S125;"<This block of commented-out lines of code should be removed.(òÓã
+W	java:S125£"<This block of commented-out lines of code should be removed.(´£”«ùÿÿÿÿ
+W	java:S125¨"<This block of commented-out lines of code should be removed.(©€µíúÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Úü’Ž
+M	java:S106{"9Replace this use of System.out or System.err by a logger.(Ûûöq
+]	java:S899¥"BDo something with the "boolean" value returned by "createNewFile".(Ð’Íùÿÿÿÿ
+V	java:S899¤";Do something with the "boolean" value returned by "delete".(²Œ­ûÿÿÿÿ
+O	java:S106À"9Replace this use of System.out or System.err by a logger.(Àûå 
+m
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 35 to the 15 allowed.(·ò¡ úÿÿÿÿ
