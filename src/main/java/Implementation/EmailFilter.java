@@ -1,5 +1,9 @@
 package Implementation;
 
+import Utility.Utilities;
+import javafx.application.Platform;
+import javafx.stage.Stage;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -15,6 +19,7 @@ public class EmailFilter {
     ArrayList<String> domainList = new ArrayList<>();//stores domainList from input file
     private final ArrayList<String> files = new ArrayList();
     private final String verifiedEmails = "VerifiedEmails";
+    boolean completed = false;
     //    ArrayList<String> emailList = new ArrayList<>();//stores emailList from input file
 
     public void filterThemAll(int hop) {
@@ -117,6 +122,11 @@ public class EmailFilter {
             System.out.println("Internet is not connected");
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        if(filteredEmails.size() == emails.size() && !completed){
+            Utilities utilities = new Utilities();
+            Platform.runLater(() ->  utilities.erorrmessageBox(new Stage(), "Email Filtration Completed Successfully"));
+            completed = true;
         }
 
     }

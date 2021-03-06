@@ -38,6 +38,7 @@ public class MailController implements Initializable {
     @FXML
     private javafx.scene.control.ListView<String> ListView;
     EmailFilter emailFilter = new EmailFilter();
+
     @FXML
     private Button popButton;
 
@@ -147,8 +148,8 @@ public class MailController implements Initializable {
 
         }
 
-        Utilities utilities = new Utilities();
-        utilities.erorrmessageBox(new Stage(), "The Filter has process fined , check your directory");
+//        Utilities utilities = new Utilities();
+//        utilities.erorrmessageBox(new Stage(), "The Filter has process fined , check your directory");
 
     }
 
