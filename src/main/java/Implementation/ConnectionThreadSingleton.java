@@ -1,6 +1,6 @@
 package Implementation;
 
-import Application.MainClassWithTransition;
+import Controller.UserLoginController;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -84,14 +84,14 @@ public class ConnectionThreadSingleton {
                 }
 
                 try {
-                    root = (Parent) loader.load();
+                    root = loader.load();
                     stage.setTitle("Connection Lost");
                     Scene scene = new Scene(root);
 
                     stage.setScene(scene);
                     stage.initStyle(StageStyle.UNDECORATED);
                     stage.initModality(Modality.WINDOW_MODAL);
-                    stage.initOwner(MainClassWithTransition.getMainStage());
+                    stage.initOwner(UserLoginController.getMainStage());
                     stage.centerOnScreen();
                     connectionWindowIsOpen = true;
                     stage.show();
@@ -133,7 +133,7 @@ public class ConnectionThreadSingleton {
         establishedConnection();
     }
 
-   public static synchronized ConnectionThreadSingleton getInstance() {
+    public static synchronized ConnectionThreadSingleton getInstance() {
         if (instance == null) {
             return instance = new ConnectionThreadSingleton();
         }

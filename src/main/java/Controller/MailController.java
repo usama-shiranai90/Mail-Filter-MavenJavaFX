@@ -46,10 +46,10 @@ public class MailController implements Initializable {
 
         if(noOfThreadsComboBox != null){
 
-        noOfThreadsComboBox.getItems().add("1");
-        noOfThreadsComboBox.getItems().add("5");
-        noOfThreadsComboBox.getItems().add("10");
-        noOfThreadsComboBox.getItems().add("15");
+            noOfThreadsComboBox.getItems().add("1");
+            noOfThreadsComboBox.getItems().add("5");
+            noOfThreadsComboBox.getItems().add("10");
+            noOfThreadsComboBox.getItems().add("15");
         }
 //    popButton.fire();
         Runnable connectionEstablishmentThread = () -> {

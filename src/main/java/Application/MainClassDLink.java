@@ -21,7 +21,7 @@ public class MainClassDLink extends Application {
         setPrimaryStage(stage);
         setPrimaryScene(scene);
 
-        FXMLLoader root = new FXMLLoader(new File("src/main/java/View/MailFilter.fxml").toURI().toURL());
+        FXMLLoader root = new FXMLLoader(new File("src/main/java/View/LoginPage.fxml").toURI().toURL());
         AnchorPane pane = (AnchorPane) root.load();
         scene = new Scene(pane);
 
