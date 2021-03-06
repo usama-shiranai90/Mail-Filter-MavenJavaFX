@@ -20,7 +20,7 @@ public class RealDatabase implements Database {
     }
 
     @Override
-    public void authentication(String username, String password) throws ClassNotFoundException, SQLException {
+    public boolean authentication(String username, String password) throws ClassNotFoundException, SQLException {
         networkAddress = new NetworkAddress();
         String macAddressOfPC = networkAddress.getPCMacAddress();
         Connection connection = DriverManager.getConnection(databaseURL, sqluser, sqlpassword);
@@ -39,29 +39,26 @@ public class RealDatabase implements Database {
 
         while ((resultset.next()) && flag) {
             usernameStatic = resultset.getString("userid");
-
             passwordStatic = resultset.getString("password");
             macAddress = resultset.getString("systemMACAddress");
-            System.out.println("macAddress = " + macAddress);
 
             if (username.hashCode() == usernameStatic.hashCode() && password.hashCode() == passwordStatic.hashCode()) {
                 if (macAddress == null) {
                     int userid = Integer.parseInt(usernameStatic);
                     PreparedStatement statement = connection.prepareStatement(String.format("UPDATE mailfilter SET systemMACAddress ='%s' WHERE userid = %d; ", macAddressOfPC, userid));
                     statement.executeUpdate();
-                    flag = false;
-                } else if (macAddressOfPC.equals(macAddress)) {
-                    flag = false;
-                } else {
-                    flag = true;
-                    break;
-                }
+//                    flag = false;
+                    return false;
+                } else
+                    return !macAddressOfPC.equals(macAddress); // return false...
 
             }
         }
         System.out.println("usernameStatic = " + usernameStatic);
         System.out.println("passwordStatic = " + passwordStatic);
         System.out.println("macAddress = " + macAddress);
+
+        return true;
     }
 
     @Override

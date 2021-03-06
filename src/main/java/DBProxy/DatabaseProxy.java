@@ -7,9 +7,9 @@ public class DatabaseProxy implements Database {
     Database db = new RealDatabase();
 
     @Override
-    public void authentication(String username, String password) throws Exception {
-      db.authentication(username, password);
-}
+    public boolean authentication(String username, String password) throws Exception {
+        return db.authentication(username, password);
+    }
 
     @Override
     public String returnUserID() {
@@ -18,7 +18,7 @@ public class DatabaseProxy implements Database {
 
     @Override
     public String returnUserPassword() {
-        return  db.returnUserPassword();
+        return db.returnUserPassword();
     }
 
     @Override

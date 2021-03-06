@@ -44,7 +44,7 @@ public class MailController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        if(noOfThreadsComboBox != null){
+        if (noOfThreadsComboBox != null) {
 
             noOfThreadsComboBox.getItems().add("1");
             noOfThreadsComboBox.getItems().add("5");
@@ -61,33 +61,31 @@ public class MailController implements Initializable {
 
     @FXML
     void popupClicked(MouseEvent event) throws IOException {
-//        Stage stage = new Stage();
-//        Parent root;
-//        FXMLLoader loader = new FXMLLoader(new File("src/main/java/View/ConnectionDialogue.fxml").toURI().toURL());
-//
-//        root = loader.load();
-//
-//        stage.setTitle("Police Station Management System");
-//        Scene scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.initModality(Modality.WINDOW_MODAL);
-//
-//        stage.initOwner(popButton.getScene().getWindow());
-//        stage.centerOnScreen();
-////        stage.setX(popButton.getScene().getWindow().getX() + 200);
-////        stage.setY(popButton.getScene().getWindow().getY() + 200);
-//        stage.show();
+/*        Stage stage = new Stage();
+        Parent root;
+        FXMLLoader loader = new FXMLLoader(new File("src/main/java/View/ConnectionDialogue.fxml").toURI().toURL());
 
-//        Runnable connectionEstablishmentThread = () -> {
-//            ConnectionThreadSingleton connectionThreadSingleton = ConnectionThreadSingleton.getInstance();
-//        };
-//        Thread connection = new Thread(connectionEstablishmentThread);
-//        connection.start();
+        root = loader.load();
+
+        stage.setTitle("Police Station Management System");
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.initModality(Modality.WINDOW_MODAL);
+
+        stage.initOwner(popButton.getScene().getWindow());
+        stage.centerOnScreen();
+//        stage.setX(popButton.getScene().getWindow().getX() + 200);
+//        stage.setY(popButton.getScene().getWindow().getY() + 200);
+        stage.show();
+
+        Runnable connectionEstablishmentThread = () -> {
+            ConnectionThreadSingleton connectionThreadSingleton = ConnectionThreadSingleton.getInstance();
+        };
+        Thread connection = new Thread(connectionEstablishmentThread);
+        connection.start();*/
     }
 
-    public Window getStage(){
-//        return (Window) Stage.getWindows().stream().filter(Window::isShowing);
-
+    public Window getStage() {
         return popButton.getScene().getWindow();
     }
 
@@ -138,13 +136,7 @@ public class MailController implements Initializable {
         int totalEmails = 0;
         totalEmails = emailFilter.totalNumberOfEmails();
 
-//        Runnable connectionEstablishmentThread = () -> {
-//            ConnectionThreadSingleton connectionThreadSingleton = ConnectionThreadSingleton.getInstance();
-//        };
-
         Runnable runnable = () -> emailFilter.filterThemAll(hopCounter++);
-//        Thread connection = new Thread(connectionEstablishmentThread);
-//        connection.start();
         System.out.println("totalEmails = " + totalEmails);  // 5..
         Thread[] filterThreads = new Thread[totalEmails];
 

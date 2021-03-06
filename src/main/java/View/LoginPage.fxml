@@ -47,12 +47,12 @@
                   <Font name="Segoe UI" size="10.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="usernameField" focusColor="#802020" layoutX="7.0" prefHeight="34.0" prefWidth="275.0" promptText="username or email">
+            <JFXTextField fx:id="usernameField" focusColor="#802020" layoutX="7.0" prefHeight="34.0" prefWidth="275.0" promptText="UserID">
                <font>
                   <Font name="Century Gothic Bold Italic" size="13.0" />
                </font>
             </JFXTextField>
-            <JFXPasswordField fx:id="passwordField" focusColor="#802020" layoutX="6.0" layoutY="55.0" prefHeight="34.0" prefWidth="275.0" promptText="password">
+            <JFXPasswordField fx:id="passwordField" focusColor="#802020" layoutX="6.0" layoutY="55.0" prefHeight="34.0" prefWidth="275.0" promptText="Password">
                <font>
                   <Font name="Century Gothic Bold Italic" size="13.0" />
                </font>

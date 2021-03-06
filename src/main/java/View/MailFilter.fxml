@@ -71,7 +71,6 @@
             <Font name="Century Gothic" size="15.0" />
          </font>
       </JFXButton>
-      <Button fx:id="popButton" layoutX="469.0" layoutY="387.0" mnemonicParsing="false" onMouseClicked="#popupClicked" text="PopOut" />
-      <JFXSpinner fx:id="spinnerBitch" layoutX="470.0" layoutY="426.0" />
+
    </children>
 </AnchorPane>

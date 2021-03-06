@@ -116,6 +116,10 @@ public class EmailFilter {
                 if (Thread.currentThread().getName().equalsIgnoreCase("Thread-1"))
                     break;
             }
+            System.out.println("Terminated");
+
+
+
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();

@@ -35,7 +35,7 @@ public class PreLoadingWelcomeStartUp extends Application {
         // Perform some heavy lifting ( progress , Even Database startup or other things. )
         for (int i = 1; i <= COUNT_LIMIT; i++) {
             double progress = (double) i / 10;
-            System.out.println("progress: " + progress);
+//            System.out.println("progress: " + progress);
             LauncherImpl.notifyPreloader(this, new Preloader.ProgressNotification(progress));
             Thread.sleep(100);
         }

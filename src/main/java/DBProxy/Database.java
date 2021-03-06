@@ -10,7 +10,7 @@ public interface Database {
     String driversql = "com.mysql.cj.jdbc.Driver";
 
 
-    public void authentication(String username, String password) throws Exception;  // login
+    public boolean authentication(String username, String password) throws Exception;  // login
 
     public String returnUserID();
 

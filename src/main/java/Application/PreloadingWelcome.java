@@ -39,7 +39,7 @@ public class PreloadingWelcome extends Preloader{
     public void handleApplicationNotification(Preloader.PreloaderNotification notification) {
 
         if (notification instanceof ProgressNotification) {
-            System.out.println("Value@ :" + ((ProgressNotification) notification).getProgress());
+//            System.out.println("Value@ :" + ((ProgressNotification) notification).getProgress());
             WelcomeLogin.statProgressBar.setProgress(((ProgressNotification) notification).getProgress());
         }
     }
@@ -51,7 +51,7 @@ public class PreloadingWelcome extends Preloader{
 
             case BEFORE_START:
                 // Called after MyApplication#init and before MyApplication#start is called.
-                System.out.println("BEFORE_START");
+//                System.out.println("BEFORE_START");
                 preloaderStage.hide();
                 break;
         }
