@@ -31,16 +31,16 @@ public class ReadWriteThread extends Thread {
     public void run() {
 
         if (Thread.currentThread().getName().startsWith("Read") && currentThread().getPriority() == 3) {
-            createFile(fileDirectory, combinedExchanger);
+//            createFile(fileDirectory, combinedExchanger);
         } else if (Thread.currentThread().getName().startsWith("Write") && currentThread().getPriority() == 4) {
 
-            writeToFile(fileDirectory, combinedExchanger, details);
+//            writeToFile(fileDirectory, combinedExchanger, details);
 
         }
         super.run();
     }
 
-    private void createFile(String path, String nameOfFile) {
+/*    private void createFile(String path, String nameOfFile) {
         try {
             File file = new File(String.format("%s\\%s", path, verifiedEmails));
 
@@ -62,10 +62,10 @@ public class ReadWriteThread extends Thread {
             System.out.println("An error occurred while creating the file " + nameOfFile);
             e.printStackTrace();
         }
-    }
+    }*/
 
 
-    private static void writeToFile(String path, String nameOfFile, String line) {
+/*    private static void writeToFile(String path, String nameOfFile, String line) {
         try {
             File file = new File(String.format("%s\\%s\\%s.txt", path, verifiedEmails, nameOfFile));
 //            System.out.println("filepath = " + file);
@@ -82,7 +82,7 @@ public class ReadWriteThread extends Thread {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-    }
+    }*/
 
 
 }

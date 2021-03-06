@@ -3,6 +3,7 @@ package Controller;
 import Implementation.ConnectionThreadSingleton;
 import Implementation.EmailFilter;
 import Implementation.FilterChecks;
+import Utility.Utilities;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -30,7 +31,6 @@ import java.util.ResourceBundle;
 
 public class MailController implements Initializable {
 
-
     private File file;
     @FXML
     private ComboBox<String> noOfThreadsComboBox;
@@ -51,38 +51,11 @@ public class MailController implements Initializable {
             noOfThreadsComboBox.getItems().add("10");
             noOfThreadsComboBox.getItems().add("15");
         }
-//    popButton.fire();
-        Runnable connectionEstablishmentThread = () -> {
-            ConnectionThreadSingleton connectionThreadSingleton = ConnectionThreadSingleton.getInstance();
-        };
+
+        Runnable connectionEstablishmentThread = ConnectionThreadSingleton::getInstance;
         Thread connection = new Thread(connectionEstablishmentThread);
+        connection.setName("connectionCheck");
         connection.start();
-    }
-
-    @FXML
-    void popupClicked(MouseEvent event) throws IOException {
-/*        Stage stage = new Stage();
-        Parent root;
-        FXMLLoader loader = new FXMLLoader(new File("src/main/java/View/ConnectionDialogue.fxml").toURI().toURL());
-
-        root = loader.load();
-
-        stage.setTitle("Police Station Management System");
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.initModality(Modality.WINDOW_MODAL);
-
-        stage.initOwner(popButton.getScene().getWindow());
-        stage.centerOnScreen();
-//        stage.setX(popButton.getScene().getWindow().getX() + 200);
-//        stage.setY(popButton.getScene().getWindow().getY() + 200);
-        stage.show();
-
-        Runnable connectionEstablishmentThread = () -> {
-            ConnectionThreadSingleton connectionThreadSingleton = ConnectionThreadSingleton.getInstance();
-        };
-        Thread connection = new Thread(connectionEstablishmentThread);
-        connection.start();*/
     }
 
     public Window getStage() {
@@ -99,15 +72,17 @@ public class MailController implements Initializable {
 
     @FXML
     void OnClick(MouseEvent event) throws IOException {
-//        JFileChooser chooser = new JFileChooser();
 
         try {
             FXFileChooserDialog dialog = FXFileChooserDialog.create(Skin.DEFAULT);
             dialog.showOpenDialog(null);
             file = dialog.getResult().toFile();
             String filename = file.getAbsolutePath();
-            String filePath = file.getPath();
             FilterChecks.FILENAME = filename;
+
+            FilterChecks.FOLDERPATH = file.getParent();
+
+
             FileReader fileReader = null;
             try {
                 fileReader = new FileReader(filename);
@@ -125,7 +100,6 @@ public class MailController implements Initializable {
 
         }
 
-
     }
 
 
@@ -133,33 +107,48 @@ public class MailController implements Initializable {
 
     @FXML
     void generateFilter(MouseEvent event) {
-        int totalEmails = 0;
-        totalEmails = emailFilter.totalNumberOfEmails();
 
-        Runnable runnable = () -> emailFilter.filterThemAll(hopCounter++);
-        System.out.println("totalEmails = " + totalEmails);  // 5..
-        Thread[] filterThreads = new Thread[totalEmails];
 
-        if (totalEmails <= FilterChecks.selectedThreadNumber) { // 15
+        if (noOfThreadsComboBox.getValue() == null) {
+            Utilities utilities = new Utilities();
+            utilities.erorrmessageBox(new Stage(), "Please select number of threads you want to use");
+        } else {
+//            System.out.println("Thread Box size  : " + noOfThreadsComboBox.getValue());
+            int totalEmails = 0;
+            totalEmails = emailFilter.totalNumberOfEmails();
 
-            if (totalEmails == 1) {
-                filterThreads[0] = new Thread(runnable);
-                filterThreads[0].start();
+            Runnable runnable = () -> emailFilter.filterThemAll(hopCounter++);
+            System.out.println("totalEmails = " + totalEmails);  // 5..
+
+
+            Thread[] filterThreads = new Thread[totalEmails];
+            if (totalEmails <= FilterChecks.selectedThreadNumber) { // 15
+
+                if (totalEmails == 1) {
+                    filterThreads[0] = new Thread(runnable);
+                    filterThreads[0].start();
+                } else {
+                    for (int i = 0; i < 2; i++) {
+                        filterThreads[i] = new Thread(runnable);
+                        synchronized (this) {
+                            filterThreads[i].start();
+                        }
+                    }
+                }
+
             } else {
-                for (int i = 0; i < 2; i++) {
+                for (int i = 0; i < FilterChecks.selectedThreadNumber; i++) {
                     filterThreads[i] = new Thread(runnable);
-                    filterThreads[i].start();
+//                    synchronized (this) {
+                        filterThreads[i].start();
+//                    }
                 }
             }
 
-        } else {
-            for (int i = 0; i < FilterChecks.selectedThreadNumber; i++) {
-                filterThreads[i] = new Thread(runnable);
-                filterThreads[i].start();
-            }
         }
 
-        notifier("Good!", "The Filter has process fined , check your directory");
+        Utilities utilities = new Utilities();
+        utilities.erorrmessageBox(new Stage(), "The Filter has process fined , check your directory");
 
     }
 
@@ -184,14 +173,12 @@ public class MailController implements Initializable {
 
     @FXML
     void selectThreadAction(MouseEvent event) {
-        System.out.println("button was pressed.");
-
 
         noOfThreadsComboBox.setOnAction(actionEvent -> {
             if (noOfThreadsComboBox.getValue() != null) {
                 FilterChecks.selectedThreadNumber = Integer.parseInt(noOfThreadsComboBox.getValue());
 
-                System.out.println("index = " + FilterChecks.selectedThreadNumber);
+//                System.out.println("index = " + FilterChecks.selectedThreadNumber);
             } else {
                 System.out.println("check value");
             }

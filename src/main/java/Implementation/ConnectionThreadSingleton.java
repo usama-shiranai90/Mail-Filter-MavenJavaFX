@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -38,15 +37,13 @@ public class ConnectionThreadSingleton {
                 url = new URL(httpStartup + domainName);
                 urlConnection = url.openConnection();
                 urlConnection.connect();
-                System.out.println("Connection maintained");
-
+//                System.out.println("Connection maintained" + "  ,  Thread name : " + Thread.currentThread().getName() + Thread.currentThread().getId());
                 TimeUnit.SECONDS.sleep(3);
                 if (connectionTries > 0) {
                     connectionTries = 0;
                     FilterChecks.connectionLost = false;
                     connectionWindowIsOpen = false;
                     Platform.runLater(() -> stage.close());
-//                    stage.close();
                 }
 
             }
@@ -55,7 +52,6 @@ public class ConnectionThreadSingleton {
                 FilterChecks.connectionLost = true;
                 if(!connectionWindowIsOpen){
                     reEstablishingNetwork();
-//                    closeIt();
                 }
                 else {
                     closeIt();
@@ -95,8 +91,6 @@ public class ConnectionThreadSingleton {
                     stage.centerOnScreen();
                     connectionWindowIsOpen = true;
                     stage.show();
-//                    System.out.println("sdfxgcvhbm");
-//                    establishedConnection();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -108,7 +102,7 @@ public class ConnectionThreadSingleton {
         connectionTries++;
 
         try {
-            TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(3);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
