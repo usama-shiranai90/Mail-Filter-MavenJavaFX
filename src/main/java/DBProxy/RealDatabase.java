@@ -33,7 +33,7 @@ public class RealDatabase implements Database {
         connection.createStatement();
 
         PreparedStatement preparedStatementForLoginSelection;
-        preparedStatementForLoginSelection = connection.prepareStatement("select userid,password ,systemMACAddress from mailfilter");
+        preparedStatementForLoginSelection = connection.prepareStatement("select userid,password ,systemMACAddress from `MailFilter`");
         boolean flag = true;
         ResultSet resultset = preparedStatementForLoginSelection.executeQuery();
 
@@ -45,7 +45,7 @@ public class RealDatabase implements Database {
             if (username.hashCode() == usernameStatic.hashCode() && password.hashCode() == passwordStatic.hashCode()) {
                 if (macAddress == null) {
                     int userid = Integer.parseInt(usernameStatic);
-                    PreparedStatement statement = connection.prepareStatement(String.format("UPDATE mailfilter SET systemMACAddress ='%s' WHERE userid = %d; ", macAddressOfPC, userid));
+                    PreparedStatement statement = connection.prepareStatement(String.format("UPDATE `MailFilter` SET systemMACAddress ='%s' WHERE userid = %d; ", macAddressOfPC, userid));
                     statement.executeUpdate();
 //                    flag = false;
                     return false;

@@ -10,7 +10,7 @@ import javafx.stage.StageStyle;
 
 import java.io.File;
 
-public class PreloadingWelcome extends Preloader{
+public class PreloadingWelcome extends Preloader {
 
     private Stage preloaderStage;
     private Scene scene;
@@ -21,7 +21,7 @@ public class PreloadingWelcome extends Preloader{
 
         FXMLLoader root = new FXMLLoader(new File("src/main/java/View/Welcome.fxml").toURI().toURL());
         AnchorPane pane = (AnchorPane) root.load();
-         scene = new Scene(pane);
+        scene = new Scene(pane);
 
     }
 
@@ -50,8 +50,6 @@ public class PreloadingWelcome extends Preloader{
         switch (type) {
 
             case BEFORE_START:
-                // Called after MyApplication#init and before MyApplication#start is called.
-//                System.out.println("BEFORE_START");
                 preloaderStage.hide();
                 break;
         }

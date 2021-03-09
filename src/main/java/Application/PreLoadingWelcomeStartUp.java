@@ -23,7 +23,7 @@ public class PreLoadingWelcomeStartUp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(new File("src/main/java/View/LoginPage.fxml").toURI().toURL());
         Parent parent = (Parent) fxmlLoader.load();
         Scene scene = new Scene(parent);
-        stage.setTitle("Mail-Filter");
+        stage.setTitle("Login-Page");
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.show();
@@ -37,7 +37,7 @@ public class PreLoadingWelcomeStartUp extends Application {
             double progress = (double) i / 10;
 //            System.out.println("progress: " + progress);
             LauncherImpl.notifyPreloader(this, new Preloader.ProgressNotification(progress));
-            Thread.sleep(100);
+            Thread.sleep(50);
         }
     }
 

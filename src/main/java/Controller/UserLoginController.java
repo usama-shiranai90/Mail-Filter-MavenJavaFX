@@ -3,17 +3,25 @@ package Controller;
 import Application.PreLoadingWelcomeStartUp;
 import DBProxy.Database;
 import DBProxy.DatabaseProxy;
-import Utility.Utilities;
+import Utility.MessageDialog;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import java.awt.*;
 import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -21,7 +29,8 @@ public class UserLoginController implements Initializable {
 
     @FXML
     private Label lblErrors;
-
+    @FXML
+    private Hyperlink signError;
     @FXML
     private Button signinButton;
 
@@ -34,19 +43,22 @@ public class UserLoginController implements Initializable {
     private static Stage stage;
     private boolean loginAuthFlag;
 
+
+    @FXML
+    private Button btnSignup;
+
     @FXML
     void onSignClick(MouseEvent event) {
         Database database = new DatabaseProxy();
         try {
             stage = new Stage();
 
-
             loginAuthFlag = database.authentication(usernameField.getText(), passwordField.getText());
             System.out.println("loginAuthFlag = " + loginAuthFlag);
             if (loginAuthFlag) {
 
-                Utilities uti =  new Utilities();
-                uti.erorrmessageBox(stage, "You have entered wrong-Credential or MAC address found of other system..");
+                MessageDialog uti = new MessageDialog();
+                uti.erorrmessageBox(stage,"Credentials issue ", "You have entered wrong-Credential ..");
 
 
             } else {
@@ -64,7 +76,20 @@ public class UserLoginController implements Initializable {
             e.printStackTrace();
         }
 
+    }
 
+    @FXML
+    void signUpClickButtonAction(MouseEvent event) {
+        signError.setText("Visit fudscams.com");
+        signError.setOnAction(e -> {
+            if (Desktop.isDesktopSupported()) {
+                try {
+                    Desktop.getDesktop().browse(new URI("http://www.fudscams.com/"));
+                } catch (IOException | URISyntaxException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
     }
 
     public static Stage getMainStage() {
@@ -73,7 +98,7 @@ public class UserLoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        signError.setText("");
     }
 
 

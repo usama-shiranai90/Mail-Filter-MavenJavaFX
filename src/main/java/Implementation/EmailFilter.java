@@ -1,6 +1,6 @@
 package Implementation;
 
-import Utility.Utilities;
+import Utility.MessageDialog;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 
@@ -124,8 +124,8 @@ public class EmailFilter {
             e.printStackTrace();
         }
         if(filteredEmails.size() == emails.size() && !completed){
-            Utilities utilities = new Utilities();
-            Platform.runLater(() ->  utilities.erorrmessageBox(new Stage(), "Email Filtration Completed Successfully"));
+            MessageDialog utilities = new MessageDialog();
+            Platform.runLater(() ->  utilities.erorrmessageBox(new Stage(),"Successful", "Email Sorting Completed Successfully"));
             completed = true;
         }
 

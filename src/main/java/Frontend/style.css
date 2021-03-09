@@ -17,4 +17,7 @@
 #dark-blue Text {
     -fx-effect: dropshadow( one-pass-box , rgb(0, 130, 255), 1, 0.0 , 0 , 1 );
 }
-  
+
+#boxheader {
+    -fx-background-color: coral;
+}

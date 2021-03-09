@@ -3,20 +3,17 @@ package Controller;
 import Implementation.ConnectionThreadSingleton;
 import Implementation.EmailFilter;
 import Implementation.FilterChecks;
-import Utility.Utilities;
+import Utility.MessageDialog;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.stage.Window;
 import net.raumzeitfalle.fx.filechooser.FXFileChooserDialog;
 import net.raumzeitfalle.fx.filechooser.Skin;
 import org.controlsfx.control.Notifications;
@@ -26,21 +23,16 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Path;
 import java.util.ResourceBundle;
+import java.util.stream.IntStream;
 
 public class MailController implements Initializable {
 
-    private File file;
     @FXML
     private ComboBox<String> noOfThreadsComboBox;
-
     @FXML
     private javafx.scene.control.ListView<String> ListView;
-    EmailFilter emailFilter = new EmailFilter();
 
-    @FXML
-    private Button popButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -59,32 +51,19 @@ public class MailController implements Initializable {
         connection.start();
     }
 
-    public Window getStage() {
-        return popButton.getScene().getWindow();
-    }
-
-
-    private void showSelection(Path selectedPath) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText("File Selection");
-        alert.setContentText(selectedPath.toString());
-        alert.show();
-    }
-
     @FXML
-    void OnClick(MouseEvent event) throws IOException {
+    void OnClick(MouseEvent event)  {
 
         try {
             FXFileChooserDialog dialog = FXFileChooserDialog.create(Skin.DEFAULT);
             dialog.showOpenDialog(null);
-            file = dialog.getResult().toFile();
+            ListView.getItems().clear();
+            File file = dialog.getResult().toFile();
             String filename = file.getAbsolutePath();
             FilterChecks.FILENAME = filename;
-
             FilterChecks.FOLDERPATH = file.getParent();
 
-
-            FileReader fileReader = null;
+            FileReader fileReader;
             try {
                 fileReader = new FileReader(filename);
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -93,12 +72,13 @@ public class MailController implements Initializable {
                     ListView.getItems().add(ref);
                 }
 
-
             } catch (IOException e) {
                 System.out.println("Sorry....");
             }
         } catch (NullPointerException e) {
 
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }
@@ -108,19 +88,16 @@ public class MailController implements Initializable {
 
     @FXML
     void generateFilter(MouseEvent event) {
-
-
+        EmailFilter emailFilter = new EmailFilter();
         if (noOfThreadsComboBox.getValue() == null) {
-            Utilities utilities = new Utilities();
-            utilities.erorrmessageBox(new Stage(), "Please select number of threads you want to use");
+            MessageDialog utilities = new MessageDialog();
+            utilities.erorrmessageBox(new Stage(), "No Selection ", "Please select number of threads you want to use");
         } else {
 //            System.out.println("Thread Box size  : " + noOfThreadsComboBox.getValue());
             int totalEmails = 0;
             totalEmails = emailFilter.totalNumberOfEmails();
-
+            hopCounter = 0 ;
             Runnable runnable = () -> emailFilter.filterThemAll(hopCounter++);
-            System.out.println("totalEmails = " + totalEmails);  // 5..
-
 
             Thread[] filterThreads = new Thread[totalEmails];
             if (totalEmails <= FilterChecks.selectedThreadNumber) { // 15
@@ -131,25 +108,20 @@ public class MailController implements Initializable {
                 } else {
                     for (int i = 0; i < 2; i++) {
                         filterThreads[i] = new Thread(runnable);
-                        synchronized (this) {
+
                             filterThreads[i].start();
-                        }
+
                     }
                 }
 
             } else {
                 for (int i = 0; i < FilterChecks.selectedThreadNumber; i++) {
                     filterThreads[i] = new Thread(runnable);
-//                    synchronized (this) {
                         filterThreads[i].start();
-//                    }
+
                 }
             }
-
         }
-
-//        Utilities utilities = new Utilities();
-//        utilities.erorrmessageBox(new Stage(), "The Filter has process fined , check your directory");
 
     }
 
