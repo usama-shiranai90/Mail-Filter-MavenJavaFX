@@ -66,7 +66,7 @@ public class EmailFilter {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
                 String line;
                 while ((line = reader.readLine()) != null && !line.isEmpty()) {
-                    if (line.contains(domainList.get(domainCounter).toString()) && !filteredEmails.contains(emails.get(domainCounter))) {
+                    if (line.contains(domainList.get(domainCounter)) && !filteredEmails.contains(emails.get(domainCounter))) {
                         if (!line.contains("mail exchanger = " + domainList.get(domainCounter))) {
 //                            hopCount = 1;
 
@@ -77,7 +77,7 @@ public class EmailFilter {
                                 String[] mailExchanger = line.split("\\.");
                                 combinedExchanger = mailExchanger[mailExchanger.length - 2];
                             }
-                            String fileDirectory = System.getProperty("user.dir");
+                            String fileDirectory = FilterChecks.FOLDERPATH;
                             synchronized (secondKey) {
                                 createFile(fileDirectory, combinedExchanger);
                                 String details = emails.get(domainCounter) + "\n";
@@ -88,7 +88,7 @@ public class EmailFilter {
                             break;
                         } else {
                             if (!filteredEmails.contains(emails.get(domainCounter))) {
-                                String errorsDirectory = System.getProperty("user.dir");
+                                String errorsDirectory = FilterChecks.FOLDERPATH;
                                 synchronized (secondKey) {
                                     createFile(errorsDirectory, "Invalid Domains");
                                     writeToFile(errorsDirectory, "Invalid Domains", emails.get(domainCounter).toString() + "\n");
@@ -99,7 +99,7 @@ public class EmailFilter {
 
                         }
                     } else if (!filteredEmails.contains(emails.get(domainCounter))) {
-                        String errorsDirectory = System.getProperty("user.dir");
+                        String errorsDirectory = FilterChecks.FOLDERPATH;
                         synchronized (thirdKey) {
                             createFile(errorsDirectory, "Non-Existent Domains");
                             writeToFile(errorsDirectory, "Non-Existent Domains", emails.get(domainCounter).toString() + "\n");
