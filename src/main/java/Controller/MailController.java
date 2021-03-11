@@ -80,9 +80,7 @@ public class MailController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
 
     int hopCounter = 0;
 
@@ -101,20 +99,17 @@ public class MailController implements Initializable {
 
             Thread[] filterThreads = new Thread[totalEmails];
             if (totalEmails <= FilterChecks.selectedThreadNumber) { // 15
-
                 if (totalEmails == 1) {
                     filterThreads[0] = new Thread(runnable);
                     filterThreads[0].start();
                 } else {
                     for (int i = 0; i < 2; i++) {
                         filterThreads[i] = new Thread(runnable);
-
                             filterThreads[i].start();
-
                     }
                 }
-
-            } else {
+            }
+            else {
                 for (int i = 0; i < FilterChecks.selectedThreadNumber; i++) {
                     filterThreads[i] = new Thread(runnable);
                         filterThreads[i].start();
@@ -122,9 +117,7 @@ public class MailController implements Initializable {
                 }
             }
         }
-
     }
-
 
     private static void notifier(String pTitle, String pMessage) {
         Platform.runLater(() -> {
@@ -143,7 +136,6 @@ public class MailController implements Initializable {
         );
     }
 
-
     @FXML
     void selectThreadAction(MouseEvent event) {
 
@@ -156,9 +148,5 @@ public class MailController implements Initializable {
                 System.out.println("check value");
             }
         });
-
-
     }
-
-
 }

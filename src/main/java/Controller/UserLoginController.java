@@ -62,8 +62,10 @@ public class UserLoginController implements Initializable {
 
 
             } else {
-                FXMLLoader fxmlLoader = new FXMLLoader(new File("src/main/java/View/MailFilter.fxml").toURI().toURL());
-                Parent parent = fxmlLoader.load();
+//                FXMLLoader fxmlLoader = new FXMLLoader(new File("src/main/java/View/MailFilter.fxml").toURI().toURL());
+                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("MailFilter.fxml"));
+
+                Parent parent = loader.load();
                 Scene scene = new Scene(parent);
                 stage.setTitle("Mail-Filter");
                 stage.initStyle(StageStyle.UNDECORATED);

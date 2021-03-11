@@ -24,7 +24,6 @@ public class ReadWriteThread extends Thread {
         super(ThreadName);
         fileDirectory = System.getProperty("user.dir");
         this.combinedExchanger = combinedExchanger;
-
     }
 
     @Override

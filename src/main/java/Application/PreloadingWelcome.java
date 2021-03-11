@@ -9,20 +9,20 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 
 public class PreloadingWelcome extends Preloader {
 
     private Stage preloaderStage;
     private Scene scene;
 
-
     @Override
     public void init() throws Exception {
+        FXMLLoader root = new FXMLLoader(getClass().getClassLoader().getResource("Welcome.fxml"));
 
-        FXMLLoader root = new FXMLLoader(new File("src/main/java/View/Welcome.fxml").toURI().toURL());
-        AnchorPane pane = (AnchorPane) root.load();
-        scene = new Scene(pane);
-
+//        FXMLLoader root = new FXMLLoader(new File("Welcome.fxml").toURI().toURL());
+            AnchorPane pane = (AnchorPane) root.load();
+            scene = new Scene(pane);
     }
 
     @Override

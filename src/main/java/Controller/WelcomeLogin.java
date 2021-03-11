@@ -13,8 +13,6 @@ import java.util.ResourceBundle;
 
 public class WelcomeLogin implements Initializable {
 
-
-
     @FXML
     private AnchorPane rootpane;
 
@@ -33,7 +31,6 @@ public class WelcomeLogin implements Initializable {
         main = m;
         stage = s;
     }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -58,8 +55,5 @@ public class WelcomeLogin implements Initializable {
             }
         });*/
 
-
     }
-
-
 }

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="parent" prefHeight="637.0" prefWidth="533.0" stylesheets="@../Frontend/New%20Text%20Document.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MailController">
+
+   <children>
+      <HBox id="header" layoutX="1.0" layoutY="24.0" prefHeight="54.0" prefWidth="599.0" style="-fx-background-color: #614444;">
+         <children>
+            <Text fill="#e4d7d7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="0.0" styleClass="h2" text="FUD Email Sorter Pro " textAlignment="CENTER" wrappingWidth="598.5367431640625">
+               <font>
+                  <Font name="Century Gothic Bold Italic" size="31.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <Line endX="467.0" endY="-37.0" fill="#a87e7e" layoutX="133.0" layoutY="115.0" startX="-132.0" startY="-37.0" />
+      <ListView fx:id="ListView" layoutX="14.0" layoutY="329.0" prefHeight="294.0" prefWidth="284.0" />
+      <fx:include source="TitleBar.fxml" />
+      <VBox layoutX="14.0" layoutY="106.0" prefHeight="200.0" prefWidth="584.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="35.0">
+               <children>
+            <!--      <CharmListView layoutX="29.0" layoutY="166.0" prefHeight="345.0" prefWidth="264.0" />-->
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select list of emails" wrappingWidth="142.7831211090088">
+                     <font>
+                        <Font name="Century Gothic" size="13.0" />
+                     </font>
+                  </Text>
+                  <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#OnClick" prefHeight="25.0" prefWidth="85.0" text="browse">
+                     <effect>
+                        <DropShadow height="11.47" radius="2.3675" width="0.0">
+                           <color>
+                              <Color blue="0.6520808935165405" green="0.6520808935165405" red="0.7605262994766235" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="35.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Threads" wrappingWidth="142.7831211090088">
+                     <font>
+                        <Font name="Century Gothic" size="13.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="noOfThreadsComboBox" onMouseClicked="#selectThreadAction" prefHeight="25.0" prefWidth="85.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <JFXButton id="dark-blue" alignment="CENTER" layoutX="495.0" layoutY="587.0" onMouseClicked="#generateFilter" prefHeight="35.0" prefWidth="82.0" text="Start">
+         <font>
+            <Font name="Century Gothic" size="15.0" />
+         </font>
+      </JFXButton>
+
+   </children>
+</AnchorPane>

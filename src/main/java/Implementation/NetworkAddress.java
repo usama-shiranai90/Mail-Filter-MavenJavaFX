@@ -27,7 +27,6 @@ public class NetworkAddress {
 
     public String getPCMacAddress() {
         try {
-
             System.out.println("Current IP address : " + address.getHostAddress());
             NetworkInterface network = NetworkInterface.getByInetAddress(address);
             byte[] mac = network.getHardwareAddress();
@@ -37,7 +36,8 @@ public class NetworkAddress {
             });
 
             return networkBuild.toString();
-        } catch (SocketException e) {
+        }
+        catch (SocketException e) {
             e.printStackTrace();
         }
         return null;
