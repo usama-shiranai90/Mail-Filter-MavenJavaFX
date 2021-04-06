@@ -135,8 +135,8 @@ public class EmailFilter {
         return totalEmails;
     }
 
-    public int totalNumberOfEmails() {
 
+    public int totalNumberOfEmails() {
         File myObj = new File(FilterChecks.FILENAME);
         Scanner myReader = null;
         try {
